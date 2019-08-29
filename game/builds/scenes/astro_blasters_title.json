@@ -1,0 +1,39 @@
+{
+    "entities":[
+		{
+			"name":"title",
+			"type":"entity",
+			"tag":"ui",
+			"lifetime":0,
+			"spawner":false,
+			"transform":{
+				"position":[
+					400.0,
+					300.0
+				],
+				"rotation":0.0,
+				"scale":[
+					1.0,
+					1.0
+				]
+			},
+			"components":[
+				{
+					"type":"text_component",
+					"font_name":"fonts/emulogic.ttf",
+					"texture_name_base":"text_texture",
+					"color":[
+						255.0,
+						0.0,
+						0.0
+					],
+					"text":"Astro Blaster",
+					"origin":[
+						0.5,
+						0.5
+					]
+				}
+			]
+		}
+    ]
+}

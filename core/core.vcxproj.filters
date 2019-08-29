@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="headers">
+      <UniqueIdentifier>{611b6de1-6b6c-4093-9721-367f35a25e35}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="assert.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="filesystem.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="heap.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="memory.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="json.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="random.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="name.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="string.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="timer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="assert.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="heap.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="memory.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="random.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_count.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_ptr.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="smart_ptr.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="timer.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="types.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="core.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="json.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="pool_allocator.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="name.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="string.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="handle.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="reflection.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

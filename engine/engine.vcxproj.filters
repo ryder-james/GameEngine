@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="headers">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="headers\components">
+      <UniqueIdentifier>{c0cf1587-2775-4551-9f2b-ad8676c3ff9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\components">
+      <UniqueIdentifier>{6d4a3081-40ad-4fed-9474-d6ebe8e9091f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers\components\render">
+      <UniqueIdentifier>{0414ad2e-207d-4d5a-8924-7b0ed0e8d645}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\components\render">
+      <UniqueIdentifier>{0e740f0c-49a2-4ceb-ade6-a5773b7b6121}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="engine.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="entity.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="scene.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="controller_component.cpp">
+      <Filter>source\components</Filter>
+    </ClCompile>
+    <ClCompile Include="physics_component.cpp">
+      <Filter>source\components</Filter>
+    </ClCompile>
+    <ClCompile Include="weapon_component.cpp">
+      <Filter>source\components</Filter>
+    </ClCompile>
+    <ClCompile Include="player_component.cpp">
+      <Filter>source\components</Filter>
+    </ClCompile>
+    <ClCompile Include="circle_collision_component.cpp">
+      <Filter>source\components</Filter>
+    </ClCompile>
+    <ClCompile Include="audio_component.cpp">
+      <Filter>source\components</Filter>
+    </ClCompile>
+    <ClCompile Include="text_component.cpp">
+      <Filter>source\components\render</Filter>
+    </ClCompile>
+    <ClCompile Include="render_component.cpp">
+      <Filter>source\components\render</Filter>
+    </ClCompile>
+    <ClCompile Include="sprite_animation_component.cpp">
+      <Filter>source\components\render</Filter>
+    </ClCompile>
+    <ClCompile Include="sprite_component.cpp">
+      <Filter>source\components\render</Filter>
+    </ClCompile>
+    <ClCompile Include="emitter_component.cpp">
+      <Filter>source\components</Filter>
+    </ClCompile>
+    <ClCompile Include="time_component.cpp">
+      <Filter>source\components</Filter>
+    </ClCompile>
+    <ClCompile Include="moving_component.cpp">
+      <Filter>source\components</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="engine.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="system.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="component.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="entity.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="object.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="scene.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="controller_component.h">
+      <Filter>headers\components</Filter>
+    </ClInclude>
+    <ClInclude Include="physics_component.h">
+      <Filter>headers\components</Filter>
+    </ClInclude>
+    <ClInclude Include="circle_collision_component.h">
+      <Filter>headers\components</Filter>
+    </ClInclude>
+    <ClInclude Include="collision_component.h">
+      <Filter>headers\components</Filter>
+    </ClInclude>
+    <ClInclude Include="player_component.h">
+      <Filter>headers\components</Filter>
+    </ClInclude>
+    <ClInclude Include="weapon_component.h">
+      <Filter>headers\components</Filter>
+    </ClInclude>
+    <ClInclude Include="audio_component.h">
+      <Filter>headers\components</Filter>
+    </ClInclude>
+    <ClInclude Include="sprite_component.h">
+      <Filter>headers\components\render</Filter>
+    </ClInclude>
+    <ClInclude Include="sprite_animation_component.h">
+      <Filter>headers\components\render</Filter>
+    </ClInclude>
+    <ClInclude Include="render_component.h">
+      <Filter>headers\components\render</Filter>
+    </ClInclude>
+    <ClInclude Include="text_component.h">
+      <Filter>headers\components\render</Filter>
+    </ClInclude>
+    <ClInclude Include="emitter_component.h">
+      <Filter>headers\components</Filter>
+    </ClInclude>
+    <ClInclude Include="time_component.h">
+      <Filter>headers\components</Filter>
+    </ClInclude>
+    <ClInclude Include="moving_component.h">
+      <Filter>headers\components</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

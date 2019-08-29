@@ -51,6 +51,30 @@ bool MovingComponent::OnCollision(const Event<Entity>& event) {
 		event.data[0].type = Variant::kInt;
 		event.data[0].as_int = score_;
 		owner_->GetScene()->GetEngine()->GetSystem<EntityEventDispatcher>()->Notify(event);
+
+		if (owner_->GetName() == "red_ant") {
+			Entity* dead_ant = owner_->GetScene()->GetObjectFactory()->Create<Entity>("dead_red_ant");
+			dead_ant->GetTransform().translation = vector2(owner_->GetTransform().translation.x, owner_->GetTransform().translation.y);
+			dead_ant->GetTransform().rotation = owner_->GetTransform().rotation;
+			owner_->GetScene()->Add(dead_ant);
+
+			Entity* black_ant = owner_->GetScene()->GetObjectFactory()->Create<Entity>("black_ant");
+			black_ant->GetTransform().translation = vector2(owner_->GetTransform().translation.x, owner_->GetTransform().translation.y);
+			owner_->GetScene()->Add(black_ant);
+		} else {
+			Entity* dead_ant = owner_->GetScene()->GetObjectFactory()->Create<Entity>("dead_black_ant");
+			dead_ant->GetTransform().translation = vector2(owner_->GetTransform().translation.x, owner_->GetTransform().translation.y);
+			dead_ant->GetTransform().rotation = owner_->GetTransform().rotation;
+			owner_->GetScene()->Add(dead_ant);
+		}
+	}
+
+	if (event.sender == owner_ && event.receiver->GetTag() == "food") {
+		event.receiver->state_.set(Entity::kDestroy);
+
+		Event<Entity> event;
+		event.name = "food_devoured";
+		owner_->GetScene()->GetEngine()->GetSystem<EntityEventDispatcher>()->Notify(event);
 	}
 
 	return true;

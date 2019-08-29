@@ -8,7 +8,7 @@ class MovingComponent : public Component {
 public:
 	MovingComponent() {}
 
-	void Destroy() override;
+	virtual void Destroy() override;
 	bool Load(const rapidjson::Value& value) override;
 	MovingComponent* Clone() { return new MovingComponent(*this); }
 

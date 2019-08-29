@@ -22,12 +22,17 @@ protected:
 	void StartState_Update();
 
 	bool OnScore(const Event<Entity>& event);
+	bool OnMonch();
+
+	void SpawnAntWave(int ant_count);
+	void SpawnCookieCrumb();
 
 protected:
 	size_t score_ = 0;
 	size_t lives_ = 4;
 
 	Handle score_event_handle_;
+	Handle monch_handle_;
 
 	bool quit_ = false;
 	Engine* engine_ = nullptr;

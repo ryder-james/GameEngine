@@ -35,7 +35,7 @@ void WeaponComponent::Update() {
 }
 
 bool WeaponComponent::OnCollision(const Event<Entity>& event) {
-	if (event.receiver == owner_ && event.sender->GetTag() == "asteroid") {
+	if (event.receiver == owner_ && event.sender->GetTag() == "ant") {
 		owner_->state_.set(Entity::kDestroy);
 	}
 

@@ -56,10 +56,49 @@
 				}
 			]
         },
+		{
+        "name":"dead_red_ant",
+	    "type":"entity",
+	    "tag":"decor",
+		"lifetime":5.0,
+	    "spawner":true,
+            "transform":{  
+                "position":[  
+                    100.0,
+                    200.0
+                ],
+                "rotation":0.0,
+                "scale":[  
+                    0.13,
+                    0.13
+                ]
+            },
+            "components":[  
+                {  
+                    "type":"sprite_component",
+                    "texture_name":"textures/dead_red_ant.png",
+					"z":50,
+                    "origin":[  
+                        0.5,
+                        0.5
+                    ]
+                },
+				{
+					"type":"audio_component",
+					"spawn_clip_index":0,
+					"audio_files":[
+						{
+							"audio_name":"splat",
+							"audio_file_name":"audio/splat.wav"
+						}
+					]
+				}
+            ]
+        },
 	    { 
-			"name":"ant",
+			"name":"red_ant",
 			"type":"entity",
-			"tag":"asteroid",
+			"tag":"ant",
 			"lifetime":0.0,
 			"spawner":true,
 				"transform":{
@@ -76,7 +115,7 @@
 			"components":[
 				{  
                     "type":"sprite_animation_component",
-                    "texture_name":"textures/ant_walk.png",
+                    "texture_name":"textures/red_ant_walk.png",
 					"z":60,
 					"frames_per_col":3,
 					"frames_per_row":5,
@@ -112,9 +151,141 @@
 				},
 				{
 					"type":"circle_collision_component",
-					"radius":20.0
+					"radius":40.0
 				}
 			]
+        },
+		{
+        "name":"dead_black_ant",
+	    "type":"entity",
+	    "tag":"decor",
+		"lifetime":5.0,
+	    "spawner":true,
+            "transform":{  
+                "position":[  
+                    100.0,
+                    200.0
+                ],
+                "rotation":0.0,
+                "scale":[  
+                    0.1,
+                    0.1
+                ]
+            },
+            "components":[  
+                {  
+                    "type":"sprite_component",
+                    "texture_name":"textures/dead_black_ant.png",
+					"z":40,
+                    "origin":[  
+                        0.5,
+                        0.5
+                    ]
+                },
+				{
+					"type":"audio_component",
+					"spawn_clip_index":0,
+					"audio_files":[
+						{
+							"audio_name":"splat",
+							"audio_file_name":"audio/splat.wav"
+						}
+					]
+				}
+            ]
+        },
+	    { 
+			"name":"black_ant",
+			"type":"entity",
+			"tag":"ant",
+			"lifetime":0.0,
+			"spawner":true,
+				"transform":{
+					"position":[
+						100.0,
+						200.0
+					],
+					"rotation":0.0,
+					"scale":[
+						0.02,
+						0.02
+					]
+				},
+			"components":[
+				{  
+                    "type":"sprite_animation_component",
+                    "texture_name":"textures/black_ant_walk.png",
+					"z":60,
+					"frames_per_col":3,
+					"frames_per_row":5,
+					"total_frames":15,
+                    "origin":[  
+                        0.5,
+                        0.5
+                    ]
+				},
+				{
+					"type":"time_component",
+					"time_scale":1.0,
+					"actions":"Repeat"
+				},
+				{
+					"type":"physics_component",
+					"max_velocity":300.0,
+					"max_angular_velocity":360.0,
+					"drag":1.0,
+					"angular_drag":1.0
+				},
+				{
+					"type":"moving_component",
+					"score":50,
+					"force_range":[
+						25.0,
+						50.0
+					],
+					"torque_range":[
+						0.0,
+						0.0
+					]
+				},
+				{
+					"type":"circle_collision_component",
+					"radius":40.0
+				}
+			]
+        },
+		{
+        "name":"crumb",
+	    "type":"entity",
+	    "tag":"food",
+		"lifetime":0.0,
+	    "spawner":true,
+            "transform":{  
+                "position":[  
+                    100.0,
+                    200.0
+                ],
+                "rotation":0.0,
+                "scale":[  
+                    1.5,
+                    1.5
+                ]
+            },
+            "components":[  
+                {  
+                    "type":"sprite_component",
+                    "texture_name":"textures/crumb.png",
+					"z":50,
+                    "origin":[  
+                        0.5,
+                        0.5
+                    ]
+                },
+				{
+					"type":"circle_collision_component",
+					"radius":10.0
+				}
+            ]
         },
 		{
         "name":"bullet",
@@ -184,8 +355,8 @@
 				],
 				"rotation":0.0,
 				"scale":[
-					0.5,
-					0.5
+					1.0,
+					1.0
 				]
 			},
 			"components":[
@@ -195,11 +366,47 @@
 					"texture_name_base":"text_texture",
 					"z":1000,
 					"color":[
-						255.0,
-						255.0,
-						255.0
+						0.0,
+						0.0,
+						0.0
 					],
-					"text":"00000000",
+					"text":"000",
+					"origin":[
+						0.5,
+						0.5
+					]
+				}
+			]
+		},
+		{
+			"name":"lives",
+			"type":"entity",
+			"tag":"ui",
+			"lifetime":0.0,
+			"spawner":false,
+			"transform":{
+				"position":[
+					15.0,
+					15.0
+				],
+				"rotation":0.0,
+				"scale":[
+					1.0,
+					1.0
+				]
+			},
+			"components":[
+				{
+					"type":"text_component",
+					"font_name":"fonts/emulogic.ttf",
+					"texture_name_base":"text_texture",
+					"z":1000,
+					"color":[
+						0.0,
+						0.0,
+						0.0
+					],
+					"text":"4 Lives Left",
 					"origin":[
 						0.5,
 						0.5
@@ -231,7 +438,7 @@
 					"texture_name_base":"text_texture",
 					"z":1000,
 					"color":[
-						255.0,
+						0.0,
 						0.0,
 						0.0
 					],

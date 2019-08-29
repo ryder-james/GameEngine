@@ -9,6 +9,9 @@ bool Game::Startup() {
 	score_event_handle_ = engine_->GetSystem<EntityEventDispatcher>()
 		->Subscribe("score", std::bind(&Game::OnScore, this, std::placeholders::_1));
 
+	monch_handle_ = engine_->GetSystem<EntityEventDispatcher>()
+		->Subscribe("food_devoured", std::bind(&Game::OnMonch, this));
+
 	state_machine_ = new StateMachine<Game>(this);
 
 	{
@@ -32,6 +35,9 @@ bool Game::Startup() {
 }
 
 void Game::Shutdown() {
+	engine_->GetSystem<EntityEventDispatcher>()->Unsubscribe("score", score_event_handle_);
+	engine_->GetSystem<EntityEventDispatcher>()->Unsubscribe("food_devoured", monch_handle_);
+
 	engine_->Shutdown();
 
 	delete engine_;
@@ -62,15 +68,29 @@ void Game::TitleState_Exit() {
 
 void Game::StartState_Enter() {
 	engine_->LoadScene("scenes/picnic.json");
+}
 
-	for (size_t i = 0; i < 10; i++) {
-		Entity* entity = engine_->GetScene()->GetObjectFactory()->Create<Entity>("ant");
-		entity->GetTransform().translation = vector2(g_random(800), g_random(600));
-		engine_->GetScene()->Add(entity);
+void Game::StartState_Update() {
+	if (engine_->GetScene()->GetEntitiesWithTag("ant").size() == 0) {
+		SpawnAntWave(g_random_int(6, 13));
+		SpawnCookieCrumb();
 	}
 }
 
-void Game::StartState_Update() {}
+bool Game::OnMonch() {
+	//if (--lives_ == 0) {
+	//	state_machine_->SetState("game_over");
+	//}
+
+	lives_--;
+
+	Entity* entity = engine_->GetScene()->GetEntityWithName("lives");
+	std::string lives = std::to_string(lives_);
+	lives += " Lives Left";
+	entity->GetComponent<TextComponent>()->SetText(lives.c_str());
+
+	return true;
+}
 
 bool Game::OnScore(const Event<Entity>& event) {
 	score_ += event.data[0].as_int;
@@ -79,4 +99,35 @@ bool Game::OnScore(const Event<Entity>& event) {
 	entity->GetComponent<TextComponent>()->SetText(score.c_str());
 
 	return true;
+}
+
+void Game::SpawnAntWave(int ant_count) {
+	for (int i = 0; i < ant_count; i++) {
+		Entity* entity = engine_->GetScene()->GetObjectFactory()->Create<Entity>("red_ant");
+		bool left = static_cast<bool>(g_random_int(1));
+		bool top = static_cast<bool>(g_random_int(1));
+
+		float x;
+		float y;
+		if (left) {
+			x = g_random(200);
+		} else {
+			x = g_random(600, 800);
+		}
+
+		if (top) {
+			y = g_random(150);
+		} else {
+			y = g_random(450, 600);
+		}
+
+		entity->GetTransform().translation = vector2(x, y);
+		engine_->GetScene()->Add(entity);
+	}
+}
+
+void Game::SpawnCookieCrumb() {
+	Entity* crumb = engine_->GetScene()->GetObjectFactory()->Create<Entity>("crumb");
+	crumb->GetTransform().translation = vector2(g_random(250, 350), g_random(200, 400));
+	engine_->GetScene()->Add(crumb);
 }
